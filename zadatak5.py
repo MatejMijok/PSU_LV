@@ -9,7 +9,7 @@ for x in file:
     
     for rijec in x:
         rijec = rijec.translate(str.maketrans('','', string.punctuation))
-        rijec = rijec.strip()
+        rijec = rijec.rstrip("\n")
 
         if rijec.lower() in rjecnik:
             rjecnik[rijec.lower()] += 1
