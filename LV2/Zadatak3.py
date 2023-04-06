@@ -16,10 +16,8 @@ print(sirina*0.25, sirina*0.5)
 
 novaSlika = img
 
-for i in range(sirina):
-    if i>int(sirina*0.5) & i<int(sirina*0.25):
-        novaSlika[:,sirina//2:] = 0
-        novaSlika[:,:sirina//4] = 0
+novaSlika[:,sirina//2:] = 0
+novaSlika[:,:sirina//4] = 0
    
 
 plt.figure()
