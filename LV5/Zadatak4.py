@@ -22,3 +22,6 @@ plt.show()
 plt.figure(2)
 plt.imshow(face_compressed,  cmap='gray')
 plt.show()
+
+#smanjivanjem broja klustera se smanjuje broj boja te se tako dobija efekt kompresije
+#
