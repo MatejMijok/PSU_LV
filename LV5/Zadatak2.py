@@ -45,3 +45,7 @@ plt.plot(range(1,21), inertia)
 plt.xlabel("Broj klustera")
 plt.ylabel("Vrijednost kriterijske funkcije")
 plt.show()
+
+#sto je veci broj klustera to je manja vrijednost kriterijske funkcije
+#optimalna kolicina broja klustera odreduje se metodom lakta
+#sto bi tu bilo 3-5
