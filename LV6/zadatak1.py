@@ -16,7 +16,6 @@ for i in range(0,9):
     pyplot.subplot(330 + 1 + i)
     pixels = X[i].reshape((28,28))
     plt.imshow(pixels, cmap="gray")
-plt.show()
 print(y)
 
 
