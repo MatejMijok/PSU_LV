@@ -1,5 +1,3 @@
-from keras.utils.image_utils import img_to_array 
-from keras.models import load_model
 from matplotlib import pyplot as plt
 from skimage.transform import resize
 from skimage import color
