@@ -1,11 +1,7 @@
 import numpy as np
-from tensorflow import keras
-from tensorflow.python.keras import layers
 from matplotlib import pyplot as plt
 from sklearn.metrics import confusion_matrix
-from tensorflow.python.keras.layers import Dense
 from sklearn.metrics import ConfusionMatrixDisplay
-from tensorflow.python.keras.models import Sequential 
 import tensorflow as tf
 
 # Model / data parameters
@@ -13,7 +9,7 @@ num_classes = 10
 input_shape = (28, 28, 1)
 
 # train i test podaci
-(x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
 # prikaz karakteristika train i test podataka
 print('Train: X=%s, y=%s' % (x_train.shape, y_train.shape))
@@ -41,13 +37,13 @@ print(x_train_s.shape[0], "train samples")
 print(x_test_s.shape[0], "test samples")
 
 # pretvori labele
-y_train_s = keras.utils.to_categorical(y_train, num_classes)
-y_test_s = keras.utils.to_categorical(y_test, num_classes)
+y_train_s = tf.keras.utils.to_categorical(y_train, num_classes)
+y_test_s = tf.keras.utils.to_categorical(y_test, num_classes)
 
 
 # TODO: kreiraj model pomocu keras.Sequential(); prikazi njegovu strukturu
 
-model = Sequential()
+model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu',  input_shape=(28, 28, 1)))
 model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 model.add(tf.keras.layers.Flatten())
@@ -61,7 +57,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 # TODO: provedi ucenje mreze
-model.fit(x_train_s, y_train_s, epochs=11, batch_size=128)
+model.fit(x_train_s, y_train_s, epochs=15, batch_size=128)
 
 # TODO: Prikazi test accuracy i matricu zabune
 loss_and_metrics = model.evaluate(x_test_s, y_test_s, batch_size=128) 
@@ -76,4 +72,4 @@ cm_display = ConfusionMatrixDisplay(cm).plot()
 plt.show()
 
 # TODO: spremi model
-model.save('model.h5')
+model.save("model.h5")
