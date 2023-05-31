@@ -47,15 +47,17 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 # TODO: provedi ucenje mreze
-model.fit(train_ds, epochs=15, batch_size=128)
+model.fit(train_ds, epochs=5, batch_size=128)
 
 # TODO: Prikazi test accuracy i matricu zabune
 loss_and_metrics = model.evaluate(test_ds, batch_size=128) 
 
 y_pred = model.predict(test_ds, batch_size=128)
-y_pred = np.argmax(y_pred, axis=1)
-y_test = np.argmax(test_ds, axis=1)
+y_pred = np.argmax(y_pred)
+y_test = np.argmax(test_ds)
 
+y_test = y_test.reshape(-1, 1)
+y_pred = y_pred.reshape(-1, 1)
 cm = confusion_matrix(y_test, y_pred)
 model.summary() 
 cm_display = ConfusionMatrixDisplay(cm).plot()
