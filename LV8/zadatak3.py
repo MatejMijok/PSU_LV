@@ -47,7 +47,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 # TODO: provedi ucenje mreze
-model.fit(train_ds, epochs=5, batch_size=128)
+model.fit(train_ds, epochs=2, batch_size=128)
 
 # TODO: Prikazi test accuracy i matricu zabune
 loss_and_metrics = model.evaluate(test_ds, batch_size=128) 
