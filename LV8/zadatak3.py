@@ -37,7 +37,7 @@ model.add(tf.keras.layers.MaxPooling2D((2, 2)))
 model.add(tf.keras.layers.Dropout(0.2))
 model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dense(512, activation='relu'))
-model.add(tf.keras.layers.Dropout(0.2))
+model.add(tf.keras.layers.Dropout(0.5))
 model.add(tf.keras.layers.Dense(43, activation='softmax'))
 
 # TODO: definiraj karakteristike procesa ucenja pomocu .compile()
@@ -55,7 +55,7 @@ loss_and_metrics = model.evaluate(test_ds, batch_size=128)
 test_labels = []
 
 for images,labels in test_ds:
-    test_labels.extend(np.argmax(labels.numpy()), axis=1)
+    test_labels.extend(np.argmax(labels.numpy(), axis=1))
 
 y_test = np.array(test_labels)
 y_pred = np.argmax(model.predict(test_ds), axis=1)
