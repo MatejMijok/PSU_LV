@@ -24,11 +24,6 @@ test_ds = image_dataset_from_directory(
 
 # TODO: kreiraj model pomocu keras.Sequential(); prikazi njegovu strukturu
 
-normalization_layer = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)
-
-test_ds = test_ds.map(lambda x, y: (normalization_layer(x), y))
-train_ds = train_ds.map(lambda x, y: (normalization_layer(x), y))
-
 model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu',  input_shape=(48, 48, 3)))
 model.add(tf.keras.layers.Conv2D(32, (3, 3), activation='relu'))
